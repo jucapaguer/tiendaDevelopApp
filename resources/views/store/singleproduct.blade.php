@@ -18,8 +18,13 @@
                                 {{ $products[0]->short_description }}
                             </p>
                             <p>
-                                <label for="" class="prodcutSingleLabel">Precio</label>
-                                ${{number_format($products[0]->price , 0 , ',' , '.' )}}
+                                Precio
+                                @if ($products[0]->sale_price)
+                                        <span class="saleprice">${{ number_format($products[0]->price, 0, ',', '.') }}</span>
+                                        ${{ number_format($products[0]->sale_price, 0, ',', '.') }}
+                                    @else
+                                        ${{ number_format($products[0]->price, 0, ',', '.') }}
+                                    @endif
                             </p>
                             <p>
                                 <label for="" class="prodcutSingleLabel">Stock Disponible</label>
