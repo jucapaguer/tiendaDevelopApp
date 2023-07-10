@@ -33,7 +33,7 @@ Route::get('/', [InicioController::class, 'index'])->name('inicio');
 Route::get('/catalogue', [CatalogueController::class, 'index'])->name('catalogue');
 Route::get('/catalogue/{slug}', [CatalogueController::class, 'show'])->name('catalogue.product');
 Route::get('/catalogue/category/{slug}', [CategoriesController::class, 'show'])->name('catalogue.category');
-Route::post('/cart', [CartController::class, 'show'])->name('cart');
+Route::get('/cart', [CartController::class, 'show'])->name('cart');
 Route::view('/about', 'about')->name('about');
 
 Route::view('/login', 'auth.login')->name('login');
@@ -47,6 +47,7 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 
 Route::post('/save/data', [OrdersController::class, 'guardarPreOrders'])->name('save.data');
+Route::post('/delete/data', [OrdersController::class, 'deletItemPreOrder'])->name('delete.data');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', 'LogoutController@perform')->name('logout.perform');

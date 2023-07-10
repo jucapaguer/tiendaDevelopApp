@@ -33,6 +33,10 @@
       </form> --}}
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
+                    <a href="{{ route('cart') }}"><i class="bi bi-bag-fill"></i></a>
+                    
+                </li>
+                <li class="nav-item">
                     @guest
                         <a class="nav-link" aria-current="page" href="{{ route('login') }}">Cuenta</a>
                     @else
