@@ -9,43 +9,33 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('inicio') ? 'active' : '' }}" aria-current="page"
+                    <a class="nav-link {{ request()->routeIs('inicio') ? 'linkactive' : '' }}" aria-current="page"
                         href="{{ route('inicio') }}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('catalogue') ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->routeIs('catalogue') ? 'linkactive' : '' }}"
                         href="{{ route('catalogue') }}">Catalogo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->routeIs('about') ? 'linkactive' : '' }}"
                         href="{{ route('about') }}">Nosotros</a>
                 </li>
-                {{-- <li class="nav-item">
-          <a class="nav-link {{ request()->routeIs('catalogue') ? 'active' : 'inactive' }}" href="{{ route('about') }}">Nosotros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ request()->routeIs('about') ? 'active' : 'inactive' }}" href="{{ route('about') }}">Nosotros</a>
-        </li> --}}
+
             </ul>
-            {{-- <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form> --}}
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a href="{{ route('cart') }}"><i class="bi bi-bag-fill"></i></a>
-                    
+                    <a href="{{ route('cart') }}"><i class="bi bi-bag-fill shop"></i></a>
+
                 </li>
                 <li class="nav-item">
                     @guest
                         <a class="nav-link" aria-current="page" href="{{ route('login') }}">Cuenta</a>
                     @else
-                        {{-- <a class="nav-link" aria-current="page" href="{{ route('logout') }}">Salir</a> --}}
                         <form method="POST" action="{{ route('logout') }}" class="needs-validation" novalidate=""
                             autocomplete="off">
                             @csrf
-                            <button type="submit" class="">
-                                Salir
+                            <button type="submit" class="logout">
+                                Cerrar sesión
                             </button>
                         </form>
                     @endguest

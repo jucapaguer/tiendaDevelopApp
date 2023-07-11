@@ -35,6 +35,7 @@ Route::get('/catalogue/{slug}', [CatalogueController::class, 'show'])->name('cat
 Route::get('/catalogue/category/{slug}', [CategoriesController::class, 'show'])->name('catalogue.category');
 Route::get('/cart', [CartController::class, 'show'])->name('cart');
 Route::view('/about', 'about')->name('about');
+Route::view('/cheackout', 'store.cheackout')->name('cheackout');
 
 Route::view('/login', 'auth.login')->name('login');
 Route::view('/register', 'auth.register')->name('register');

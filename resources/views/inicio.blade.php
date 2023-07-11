@@ -15,16 +15,16 @@
                 <img src="https://www.alternatur.es/wp-content/uploads/2021/09/banner-productos-naturales-alternatur.jpg"
                     class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Productos Naturales</h5>
-                    <p>Salud integral con productos de calidad.</p>
+                    <h2>Productos Naturales</h2>
+                    <h5>Salud integral con productos de calidad.</h5>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="https://www.alternatur.es/wp-content/uploads/2021/09/banner-natural-alternatur.jpg"
                     class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Productos Naturales</h5>
-                    <p>Salud integral con productos de calidad.</p>
+                    <h2>Productos Naturales</h2>
+                    <h5>Salud integral con productos de calidad.</h5>
                 </div>
             </div>
         </div>
@@ -42,16 +42,16 @@
 
 
     <section>
-        <h5>Categorias</h5>
+        <h5 class="mb-4">Categorias</h5>
         <div class="row">
             @foreach ($products->categoriesData as $value)
                 <div class="col-md-2">
                     <a id="link" href="{{ route('catalogue.category', $value->id) }}">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body cardbody">
                                 <img src="https://www.alternatur.es/wp-content/uploads/2021/09/favicon-alternatur-300x300.png"
-                                    alt="" srcset="" style="max-height: 150px">
-                                <p>{{ $value->name }}</p>
+                                    alt="" srcset="" style="max-height: 150px; max-width: 100%">
+                                <p style="font-size: 18px;">{{ $value->name }}</p>
                             </div>
                         </div>
                     </a>
@@ -61,17 +61,17 @@
     </section>
 
 
-    <section>
-        <h5>Nuestros productos</h5>
+    <section class="oursproducts">
+        <h5 class="mb-4">Nuestros productos</h5>
         <div class="row">
 
             @foreach ($products as $value)
-                <div class="col-md-3">
+                <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                     <a id="link" href="{{ route('catalogue.product', $value->slug) }}">
                         <div class="card">
                             <div class="card-body">
                                 <img src="{{ $value->picture }}" alt="" srcset=""
-                                    style="max-height: 250px">
+                                    style="max-height: 250px; max-width: 100%;">
                                 <h5>{{ $value->name }}</h5>
                                 <p>
                                     @if ($value->sale_price)
@@ -81,6 +81,19 @@
                                         ${{ number_format($value->price, 0, ',', '.') }}
                                     @endif
                                 </p>
+                                <form class="cart" action="{{ route('save.data') }}" method="post">
+                                    @csrf
+                                    <div class="quantity buttons_added"><input type="number" id="quantity"
+                                            class="input-text qty text" step="1" min="1"
+                                            max="{{ $value->inventory }}" name="quantity" value="1"
+                                            title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                                            <input type="hidden" name="id" value="{{ $value->id }}">
+                                            <button
+                                            type="submit" name="add-to-cart" 
+                                            class="addcart">Añadir al
+                                            carrito</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </a>

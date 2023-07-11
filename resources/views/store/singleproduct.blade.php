@@ -18,13 +18,15 @@
                                 {{ $products[0]->short_description }}
                             </p>
                             <p>
-                                Precio
+                                <label for="" class="prodcutSingleLabel">Precio</label>
                                 @if ($products[0]->sale_price)
-                                        <span class="saleprice">${{ number_format($products[0]->price, 0, ',', '.') }}</span>
-                                        ${{ number_format($products[0]->sale_price, 0, ',', '.') }}
-                                    @else
-                                        ${{ number_format($products[0]->price, 0, ',', '.') }}
-                                    @endif
+                                    <span
+                                        class="saleprice">${{ number_format($products[0]->price, 0, ',', '.') }}</span>
+                                    <span
+                                        class="price">${{ number_format($products[0]->sale_price, 0, ',', '.') }}</span>
+                                @else
+                                    <span class="price"> ${{ number_format($products[0]->price, 0, ',', '.') }}</span>
+                                @endif
                             </p>
                             <p>
                                 <label for="" class="prodcutSingleLabel">Stock Disponible</label>
@@ -36,17 +38,17 @@
                                         class="input-text qty text" step="1" min="1"
                                         max="{{ $products[0]->inventory }}" name="quantity" value="1"
                                         title="Cantidad" size="4" placeholder="" inputmode="numeric">
-                                        <input type="hidden" name="id" value="{{ $products[0]->id }}">
-                                        <button
-                                        type="submit" name="add-to-cart" 
-                                        class="addcart">Añadir al
+                                    <input type="hidden" name="id" value="{{ $products[0]->id }}">
+                                    <button type="submit" name="add-to-cart" class="addcart">Añadir al
                                         carrito</button>
                                 </div>
                             </form>
 
                             <p>
                                 <br>
-                                <label for=""  style="font-size: 12px"><span class="prodcutSingleLabel">Categorias : </span> {{ $products[0]->categorieData[0]->name }}</label>
+                                <label for="" style="font-size: 12px"><span
+                                        class="prodcutSingleLabel">Categorias : </span>
+                                    {{ $products[0]->categorieData[0]->name }}</label>
                             </p>
                         </div>
                         <div class="col-md-12">
