@@ -8,7 +8,7 @@
                 <div class="col-6 col-md-3 mb-2">
                     <a id="link" href="{{ route('catalogue.product', $value->slug) }}">
                         <div class="card">
-                            <div class="card-body" style="text-align: left;">
+                            <div class="card-body centerCard" style="text-align: left;">
                                 <img src="http://localhost/tiendadevelopapp/public/{{ $value->picture }}" alt="" srcset=""
                                     style="max-height: 250px">
                                 <h5>{{ $value->name }}</h5>

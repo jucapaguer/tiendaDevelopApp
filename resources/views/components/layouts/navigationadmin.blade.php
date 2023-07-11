@@ -42,20 +42,22 @@
             </li> --}}
         </ul>
         <hr>
-        {{-- <div class="dropdown pb-4">
+        <div class="dropdown pb-4">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30"
                     class="rounded-circle">
-                <span class="d-none d-sm-inline mx-1">Nombre</span>
+                <span class="d-none d-sm-inline mx-1">{{ auth()->user()->name }}</span>
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Salir</a></li>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="">
+                <li><form method="POST" action="{{ route('logout') }}" class="needs-validation" novalidate=""
+                            autocomplete="off">
+                            @csrf
+                            <button type="submit" class="logout">
+                                Cerrar sesión
+                            </button>
+                        </form></li>
             </ul>
-        </div> --}}
+        </div>
     </div>
 </div>

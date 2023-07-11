@@ -32,6 +32,10 @@ class RegisterController extends Controller
             'password' => ['required','string', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        if(count(User::where('email', $request->email)->get()) > 0){
+            return redirect()->back()->with('status_error', "Este correo se encuentra registrado");
+        }
+
         $user = new User;
         $user->rol = $request->rol;
         $user->id_status = 1;

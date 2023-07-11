@@ -405,3 +405,9 @@ button, label, p, a, span, div, h2, h3, h4, h5{
 .text-right{
     text-align: end;
 }
+
+.centerCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

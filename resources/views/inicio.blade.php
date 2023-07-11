@@ -60,7 +60,6 @@
         </div>
     </section>
 
-
     <section class="oursproducts">
         <h5 class="mb-4">Nuestros productos</h5>
         <div class="row">
@@ -69,7 +68,7 @@
                 <div class="col-6 col-md-3 mb-2">
                     <a id="link" href="{{ route('catalogue.product', $value->slug) }}">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body centerCard">
                                 <img src="http://localhost/tiendadevelopapp/public/{{ $value->picture }}" alt="" srcset=""
                                     style="max-height: 250px; max-width: 100%;">
                                 <h5>{{ $value->name }}</h5>
