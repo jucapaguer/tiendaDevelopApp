@@ -81,8 +81,8 @@
                                         <td>{{ $value->slug }}</td>
                                         <td>{{ $value->name }}</td>
                                         <td class="opciones">
-                                            <a id="edit" href="#formCategoriesEdit" data-id="{{ $value->id }}"
-                                                data-name="{{ $value->name }}" data-bs-toggle="collapse"><i class="bi bi-pencil-square"></i></a>
+                                            <a id="editCategori" href="#formCategoriesEdit" data-id="{{ $value->id }}"
+                                                data-name="{{ $value->name }}" data-bs-toggle="collapse" onclick="dataviewedit({{ $value->id }},'{{ $value->name }}')"><i class="bi bi-pencil-square"></i></a>
                                             <form method="POST"
                                                 action="{{ route('admin.categorie.delete', $value->id) }}"
                                                 class="needs-validation" novalidate="" autocomplete="off">
@@ -114,12 +114,10 @@
 
 
     <script>
-        document.getElementById('edit').addEventListener('click', function() {
-            var id = this.getAttribute('data-id');
-            var name = this.getAttribute('data-name');
+        function dataviewedit(id, data){
             document.getElementById('id').value = id;
-            document.getElementById('name').value = name;
-        });
+            document.getElementById('name').value = data;
+        }
     </script>
 
     </x-layout>

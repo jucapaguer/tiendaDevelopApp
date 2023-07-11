@@ -211,7 +211,7 @@
 
                 console.log(datos);
 
-                productDetails.querySelector('.modal-body img').src = datos.picture;
+                productDetails.querySelector('.modal-body img').src = "http://localhost/tiendadevelopapp/public/"+datos.picture;
                 productDetails.querySelector('.modal-body #mName').textContent = datos.name;
                 productDetails.querySelector('.modal-body #mCategoria').textContent = datos.categorieData[0].name;
                 productDetails.querySelector('.modal-body #mInventario').textContent = datos.inventory;

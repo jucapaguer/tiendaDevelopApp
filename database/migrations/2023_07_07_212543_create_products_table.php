@@ -29,7 +29,7 @@ class CreateProductsTable extends Migration
             $table->text("description")->nullable();
             $table->bigInteger("inventory")->default(0);
             $table->integer("price");
-            $table->integer("sale_price");
+            $table->integer("sale_price")->nullable();
             $table->timestamps();
         });
     }

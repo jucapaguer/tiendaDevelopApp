@@ -9,6 +9,8 @@ use App\Models\Products;
 use App\Models\Products_details;
 use App\Models\Categories;
 use App\Models\Status;
+use App\Models\Orders_items;
+
 
 use Validator, Hash, DB;
 
@@ -78,6 +80,7 @@ class AdminProductsController extends Controller
     }
 
     function delete($id){
+        Orders_items::where('id_product', $id)->delete();
         Products_details::where('id_product', $id)->delete();
         Products::where('id', $id)->delete();
 

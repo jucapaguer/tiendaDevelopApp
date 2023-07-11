@@ -6,7 +6,7 @@
                 <div class="card-body cardbody">
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="{{ $products[0]->picture }}" alt="" style="max-width: 100%;">
+                            <img src="http://localhost/tiendadevelopapp/public/{{ $products[0]->picture }}" alt="" style="max-width: 100%;">
                         </div>
                         <div class="col-md-6">
                             <br>

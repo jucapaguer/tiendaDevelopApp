@@ -66,11 +66,11 @@
         <div class="row">
 
             @foreach ($products as $value)
-                <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
+                <div class="col-6 col-md-3 mb-2">
                     <a id="link" href="{{ route('catalogue.product', $value->slug) }}">
                         <div class="card">
                             <div class="card-body">
-                                <img src="{{ $value->picture }}" alt="" srcset=""
+                                <img src="http://localhost/tiendadevelopapp/public/{{ $value->picture }}" alt="" srcset=""
                                     style="max-height: 250px; max-width: 100%;">
                                 <h5>{{ $value->name }}</h5>
                                 <p>

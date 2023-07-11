@@ -55,7 +55,9 @@ class AdminCategoriesController extends Controller
 
     function update(Request $request){
 
-        if(Products::where('id_categories', $request->id)->get()){
+
+        $data = Products::where('id_categories', $request->id)->get();
+        if(count($data) != 0){
             $mensaje = "No se puede editar una categoria cuando tiene productos asignados a ella.";
             $stado = "status_error";
         }else{
@@ -79,7 +81,8 @@ class AdminCategoriesController extends Controller
 
     function delete($id){
 
-        if(Products::where('id_categories', $id)->get()){
+        $data = Products::where('id_categories', $id)->get();
+        if(count($data) != 0){
             $mensaje = "No se puede eliminar una categoria cuando tiene productos asignados a ella.";
             $stado = "status_error";
         }else{

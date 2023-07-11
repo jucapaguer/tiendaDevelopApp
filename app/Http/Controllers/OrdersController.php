@@ -21,6 +21,9 @@ class OrdersController extends Controller
         //Session::forget('itemsCar'); 
         $product = Products::where('id', $request->id)->get();
 
+
+        //var_dump($product[0]->sale_price);
+
         if(!is_null($product[0]->sale_price)){
             $product[0]->price = $product[0]->sale_price;
             $product[0]->subTotal = $product[0]->sale_price * $request->quantity;
@@ -54,8 +57,8 @@ class OrdersController extends Controller
         }else{
             Session::put('itemsCar',  $product);
         }
-       
-        return redirect()->back()->with('status_success', 'Producto '.$product[0]->name.' agregado al carrito');
+
+       return redirect()->back()->with('status_success', 'Producto '.$product[0]->name.' agregado al carrito');
     }
 
     function deletItemPreOrder(Request $request){
