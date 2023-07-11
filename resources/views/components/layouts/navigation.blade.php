@@ -24,7 +24,15 @@
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a href="{{ route('cart') }}"><i class="bi bi-bag-fill shop"></i></a>
+                    <a href="{{ route('cart') }}"><i class="bi bi-bag-fill shop"></i>
+                        @if (Session::has('itemsCar') && count(Session::get('itemsCar')) != 0)
+                            <span
+                                class="position-absolute translate-middle p-1 bg-danger border border-light rounded-circle"
+                                style="top: 35%;right: 6%;">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        @endif
+                    </a>
 
                 </li>
                 <li class="nav-item">

@@ -16,7 +16,7 @@
                     <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Ordenes</span></a>
                 <ul class="collapse nav flex-column ms-4" id="orders" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a href="{{ route('admin.page', ['orders', 'dashboard']) }}" class="nav-link px-0 {{ request()->routeIs('admin.page.orders.dashboard') ? 'navActive' : 'noactive' }}"> <span class="d-none d-sm-inline">Escritorio</span></a>
+                        <a href="{{ route('admin.dashboard') }}" class="nav-link px-0 {{ request()->routeIs('admin.dashboard') ? 'navActive' : 'noactive' }}"> <span class="d-none d-sm-inline">Escritorio</span></a>
                     </li>
                     <li>
                         <a href="{{ route('admin.shipping') }}" class="nav-link px-0"> <span class="d-none d-sm-inline">Métodos de envió</span></a>

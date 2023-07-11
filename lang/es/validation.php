@@ -213,5 +213,9 @@ return [
         'updated_at'               => 'actualizado el',
         'username'                 => 'usuario',
         'year'                     => 'año',
+        'passwords'                => 'contraseña',
+        'department'               => 'departamento',
+        'population'               => 'población',
+        'notes'                    => 'notas',
     ],
 ];

@@ -21,6 +21,9 @@ class CreateOrdersItemsTable extends Migration
             
             $table->unsignedBigInteger('id_product');
             $table->foreign('id_product')->references('id')->on('products');
+
+            $table->integer('value');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }

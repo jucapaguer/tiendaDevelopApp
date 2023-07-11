@@ -16,7 +16,7 @@ class CreateShippingZoneMethodsTable extends Migration
         Schema::create('shipping_zone_methods', function (Blueprint $table) {
             $table->id();
             $table->string('name', 150);
-            $table->integer('value')->nullable();
+            $table->integer('value')->default(0);
             $table->timestamps();
         });
     }

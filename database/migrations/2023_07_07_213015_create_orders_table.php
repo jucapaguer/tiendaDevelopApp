@@ -35,6 +35,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('id_coupon')->references('id')->on('coupons');
             
             $table->integer('discount')->nullable();
+            $table->integer('envio');
             $table->integer('total');
             $table->timestamps();
         });

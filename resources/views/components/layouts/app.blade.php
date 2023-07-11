@@ -12,7 +12,7 @@
 
     <meta name="description" content="{{ $metaDescription ?? 'Tienda' }}">
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
 <body class="body">

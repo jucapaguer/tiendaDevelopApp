@@ -68,6 +68,7 @@ $(document).ready(function() {
                 null,
                 null,
                 null,
+                null,
                 { "width": "20%" },
             ]
         } );

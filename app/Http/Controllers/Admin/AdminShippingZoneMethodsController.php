@@ -20,6 +20,10 @@ class AdminShippingZoneMethodsController extends Controller
 
     function create(Request $request){
 
+        if(!$request->value){
+            $request->value = 0;
+        }
+
         $categories = new Shipping_zone_methods;
         $categories->name = $request->name;
         $categories->value = $request->value;

@@ -74,9 +74,13 @@
                                                             <input class="form-check-input" type="radio"
                                                                 name="shippinMehtod" id="shippingMethod"
                                                                 value="{{ $value->id }}"
-                                                                onclick="total({{ $subtotal }},{{ $value->value }})">
+                                                                onclick="total({{ $subtotal }},{{ $value->value }},{{ $value->id }}) ">
                                                             <label class="form-check-label" for="flexRadioDefault1">
-                                                                {{ $value->name }} <span>{{ $value->value }} </span>
+                                                                {{ $value->name }}
+                                                                @if ($value->value != 0)
+                                                                    <span>${{ number_format($value->value, 0, ',', '.') }}
+                                                                    </span>
+                                                                @endif
                                                             </label>
                                                         </div>
                                                     </div>
@@ -103,7 +107,7 @@
                             <div class="noproduct"><i class="bi bi-exclamation-circle-fill"></i>
                                 <p>No tiene productos en el carrito.</p>
 
-                                <a href="{{ route('catalogue') }}">Regresar al catalogo</a>
+                                <a href="{{ route('catalogue') }}" class="addcart">Regresar al catalogo</a>
                             </div>
                         @endif
                     </div>
@@ -115,20 +119,35 @@
     </section>
 
     <script>
-        function total(value, method) {
+        function total(value, method, idMethd) {
+
+            console.log("click");
 
             if (!method) {
                 method = 0;
             }
 
             let total = value + method;
-            let opciones = { style: 'decimal', currency: 'USD' };
+            let opciones = {
+                style: 'decimal',
+                currency: 'USD'
+            };
             let numeroFormateado = total.toLocaleString('es', opciones);
 
             var spanElement = document.getElementById("total");
-
-            // Cambia el texto utilizando textContent
             spanElement.textContent = "$" + numeroFormateado;
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '{{ route('save.method') }}',
+                type: 'POST',
+                data: {
+                    variable: method
+                },
+                success: function(response) {}
+            });
 
         }
     </script>
